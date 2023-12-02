@@ -2,49 +2,47 @@
 
 # main menu
 [[main]]
-name = "Home"
-url = "/"
-weight = 1
-
-[[main]]
 name = "About"
 url = "about/"
 weight = 2
+
+# main menu
+[[main]]
+name = "Tech Events"
+url = "events/"
+weight = 3
 
 # [[main]]
 # name = "Elements"
 # url = "elements/"
 # weight = 3
 
+
+
 [[main]]
 weight = 4
-name = "Pages"
+name = "Community"
 hasChildren = true
 
-[[main]]
-parent = "Pages"
-name = "Blog"
-url = "blog/"
 
 [[main]]
-parent = "Pages"
-name = "Contact"
-url = "contact/"
+parent = "Community"
+name = "Meetups"
+url = "meetups/"
 
 [[main]]
-parent = "Pages"
-name = "Authors"
-url = "authors/"
+parent = "Community"
+name = "Go West Conference"
+url = "gowest/"
 
 [[main]]
-parent = "Pages"
-name = "Categories"
-url = "categories/"
+parent = "Community"
+name = "Roundtables"
+url = "roundtables"
 
-[[main]]
-parent = "Pages"
-name = "404 Page"
-url = "404/"
+
+
+
 
 
 # footer menu
@@ -62,3 +60,13 @@ weight = 2
 name = "Privacy Policy"
 url = "privacy-policy/"
 weight = 3
+
+[[footer]]
+weight = 5
+name = "Blog"
+url = "blog/"
+
+[[footer]]
+weight = 6
+name = "Contact"
+url = "contact/"
