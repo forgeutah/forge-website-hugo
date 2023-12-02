@@ -40,4 +40,5 @@
   var typed = new Typed('#typewriter', {
     stringsElement: '#typed-strings',
     typeSpeed: 50,
+    backDelay: 3000,
   });
