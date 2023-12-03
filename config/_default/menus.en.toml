@@ -57,11 +57,6 @@ url = "elements/"
 weight = 2
 
 [[footer]]
-name = "Privacy Policy"
-url = "privacy-policy/"
-weight = 3
-
-[[footer]]
 weight = 5
 name = "Blog"
 url = "blog/"

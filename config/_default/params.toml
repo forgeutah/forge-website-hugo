@@ -38,8 +38,8 @@ preloader = "" # use jpg, png, svg or gif format.
 # Navigation button
 [navigation_button]
 enable = true
-label = "get a quote"
-link = "contact"
+label = "Join Us"
+link = "https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g"
 
 # search
 # search module: https://github.com/gethugothemes/hugo-modules/tree/master/search

@@ -12,9 +12,8 @@ banner:
     - "ENGINEERS"
     - "FRONTEND DEVELOPERS"
     - "BUILDERS"
-  content: "We are a community of programmers, web developers, data scientists, creators, SREs, engineers, tinkerers... Our mission is to help grow technology education and talent in Utah. 
-  <br>
-  We are a community for the builders."
+    - "TECHNOLOGISTS"
+  content: "Forge Utah is a not-for-profit organization building the community specifically for technologists."
   image: "/images/banner.png"
   button:
     enable: true
