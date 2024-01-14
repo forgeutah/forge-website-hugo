@@ -17,3 +17,6 @@ Currently we sponsor several technology meetups. We are working on a more robust
 * [Engineering Leadership Utah](https://www.meetup.com/engineering-leadership-utah/)
 * [St George Developers](https://www.meetup.com/saint-george-web-developers-meetup/)
 * [The Foundry Hack Nights](https://www.meetup.com/the-foundry-by-forge-utah/)
+
+Interested in helping organize a meetup? [Check this out first](https://docs.google.com/document/d/1X4akcd0oyUsRT5ALqTNkFPrl1-Q4Uy0kjz76MOYndRY/edit?usp=sharing)
+
