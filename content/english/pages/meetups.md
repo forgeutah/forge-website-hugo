@@ -14,7 +14,7 @@ Currently we sponsor several technology meetups. We are working on a more robust
 * [Utah Data Engineering Meetup (UDEM)](https://www.meetup.com/utah-data-engineering-meetup/)
 * [Women Who Go Utah](https://www.meetup.com/Women-Who-Go-Utah/)
 * [AI Utah](https://www.meetup.com/machine-learning-utah/)
-* [Engineering Leadership Utah](https://www.meetup.com/engineering-leadership-utah/)
+* [Engineering Leadership Utah](https://lu.ma/engineering-leadership-utah)
 * [St George Developers](https://www.meetup.com/saint-george-web-developers-meetup/)
 * [The Foundry Hack Nights](https://www.meetup.com/the-foundry-by-forge-utah/)
 
