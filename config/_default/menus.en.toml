@@ -9,7 +9,7 @@ weight = 2
 # main menu
 [[main]]
 name = "Tech Events"
-url = "events/"
+url = "https://utahdev.events"
 weight = 4
 
 # [[main]]
