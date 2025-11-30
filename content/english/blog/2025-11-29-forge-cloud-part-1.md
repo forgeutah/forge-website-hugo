@@ -11,14 +11,14 @@ tags: ["technology", "cloud"]
 draft: false
 ---
 
-At Forge, we’re always looking for meaningful ways to support and accelerate the local tech community. A few months ago, one of our board members, Tod Hansmann, tossed out a simple but intriguing idea: *“What if we set up a few servers and let community members use them for hosting side projects or tinkering?”*
+At Forge, we’re always looking for meaningful ways to support and accelerate the local tech community. A few months ago, one of our board members, TodPunk, tossed out a simple but intriguing idea: *“What if we set up a few servers and let community members use them for hosting side projects or tinkering?”*
 
 Naturally, I loved it.  
 And naturally, I took it way too far.
 
 Instead of “a few servers,” my brain immediately jumped to: *Let’s build a cloud. A real cloud. Our own cloud.*
 
-So heads up, AWS—Forge Cloud is coming. (We’ll be the cloud provider that also hands out stickers and pizza.)
+So heads up, AWS— Forge Cloud is coming. (We’ll be the cloud provider that also hands out stickers and pizza.)
 
 This post is the beginning of that story.
 
@@ -49,7 +49,7 @@ Because it’s our hardware, our electricity, and our community focus, we can of
 
 ## The Minimal Lovable Product (MLP)
 
-I’ll admit: I have a tendency to overthink long-term roadmaps. Within minutes of Tod’s suggestion, I was already imagining NVIDIA GPU nodes so local AI startups could train models on Forge hardware.
+I’ll admit that I have a tendency to overthink long-term roadmaps. Within minutes of Tod’s suggestion, I was already imagining NVIDIA GPU nodes so local AI startups could train models on Forge hardware.
 
 But before we add A100s and rack-mounted RGB lights, we need something else first: a **Minimal Lovable Product**—the smallest version of Forge Cloud that is actually useful *and* brings a smile to someone’s face.
 
