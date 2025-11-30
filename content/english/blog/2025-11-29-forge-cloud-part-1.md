@@ -2,6 +2,7 @@
 title: "The Forge Cloud - Part I: The Motivation and the Minimal Loveable Product"
 meta_title: "The Forge Cloud - Part I: The Motivation and the Minimal Loveable Product"
 description: "The Forge Cloud - Part I: The Motivation and the Minimal Loveable Product"
+slug: "forge-cloud-part-i"
 date: 2025-11-29T17:00:00Z
 image: "/images/forge-cloud-part-2.png"
 categories: ["Technology", "Forge Cloud"]
