@@ -8,8 +8,8 @@ weight = 2
 
 # main menu
 [[main]]
-name = "Tech Events"
-url = "https://utahdev.events"
+name = "Utah Tech Calendar"
+url = "https://utahtechcalendar.com/"
 weight = 4
 
 # [[main]]
