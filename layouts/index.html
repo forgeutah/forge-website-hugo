@@ -1,0 +1,92 @@
+{{ define "main" }}
+  {{ $hero := .Params.hero }}
+  {{ $about := .Params.about }}
+  {{ $community := .Params.community }}
+  {{ $calendar := .Params.calendar }}
+  {{ $exterior := resources.Get "images/clubhouse-outside.png" }}
+  {{ $interior := resources.Get "images/clubhouse-inside.png" }}
+  {{ with $exterior }}{{ $exterior = .Resize "2400x webp q82" }}{{ end }}
+  {{ with $interior }}{{ $interior = .Resize "2400x webp q82" }}{{ end }}
+
+  <header class="fu-hero-stage" data-fu-hero id="top">
+    <div class="fu-hero-imgwrap">
+      <div class="fu-hero-imgframe">
+        {{ with $exterior }}<img class="fu-hero-img fu-hero-img-exterior" src="{{ .RelPermalink }}" alt="The Forge Utah clubhouse at dusk — a lakeside cabin with a neon Forge Utah sign" />{{ end }}
+        {{ with $interior }}<img class="fu-hero-img fu-hero-img-interior" src="{{ .RelPermalink }}" alt="Inside the Forge Utah clubhouse — workbenches of monitors, code, an arcade cabinet and a jukebox" />{{ end }}
+        <button class="fu-hero-door" data-fu-hero-enter type="button" aria-label="Step inside the clubhouse" title="Step inside"></button>
+      </div>
+    </div>
+    <button class="fu-hero-back" data-fu-hero-exit type="button">[ back outside ]</button>
+    <div class="fu-hero-scrim"></div>
+    <div class="fu-hero-block">
+      <div class="fu-eyebrow fu-hero-eyebrow">{{ $hero.eyebrow }}</div>
+      <h1 class="fu-hero-h1">{{ $hero.title_prefix }} <span class="fu-hero-neon">{{ $hero.title_accent }}</span><span class="fu-hero-cursor">▮</span></h1>
+      <div class="fu-hero-actions">
+        <a class="fu-btn fu-btn-primary fu-btn-lg" href="{{ $hero.primary_cta.link }}">{{ $hero.primary_cta.label }}</a>
+        <a class="fu-btn fu-btn-secondary fu-btn-lg" href="{{ $hero.secondary_cta.link }}">{{ $hero.secondary_cta.label }} <span class="fu-arrow">→</span></a>
+      </div>
+      <p class="fu-hero-p">{{ $hero.lead }}</p>
+      <div class="fu-hero-status">
+        <span class="fu-dot"></span>
+        {{ range $i, $s := $hero.status }}{{ if $i }}<span class="fu-sep">·</span>{{ end }}<span>{{ $s }}</span>{{ end }}
+      </div>
+    </div>
+  </header>
+
+  <section id="about" style="padding: 96px 0 24px;">
+    <div class="fu-about-grid">
+      <div>
+        <div class="fu-eyebrow">{{ $about.eyebrow }}</div>
+        <h2 class="fu-section-title" style="font-size: clamp(30px, 4vw, 42px);">{{ $about.title }}</h2>
+        {{ range $i, $p := $about.body }}
+          <p class="fu-about-lead{{ if $i }} is-muted{{ end }}">{{ $p }}</p>
+        {{ end }}
+        {{ with $about.link }}<a href="{{ .url | relLangURL }}" class="fu-inline-link">{{ .label }}</a>{{ end }}
+      </div>
+      <div class="fu-term" style="margin-top: 44px;">
+        <div class="fu-term-bar">
+          <div class="fu-term-dots"><span></span><span></span><span></span></div>
+          <span class="fu-term-title">forge@clubhouse: ~</span>
+        </div>
+        <div class="fu-term-body">
+          <div class="fu-term-line is-cmd"><span style="color: var(--accent); font-weight: 700;">$</span> whoami</div>
+          <div class="fu-term-line">utah-technologist</div>
+          <div class="fu-term-line is-cmd"><span style="color: var(--accent); font-weight: 700;">$</span> forge join --channel slack</div>
+          <div class="fu-term-line is-ok">[ OK ] welcome aboard. see you at the lake.</div>
+          <div class="fu-term-line is-cmd"><span style="color: var(--accent); font-weight: 700;">$</span> <span class="fu-cursor">▮</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="community" style="padding: 72px 0 40px;">
+    <div class="fu-section-head" style="margin-bottom: 32px;">
+      <div class="fu-eyebrow">{{ $community.eyebrow }}</div>
+      <h2 class="fu-section-title">{{ $community.title }}</h2>
+      <p class="fu-section-sub">{{ $community.sub }}</p>
+    </div>
+    <div class="fu-mission-grid">
+      {{ range $community.cards }}
+        <div class="fu-mission-card">
+          <div class="fu-mission-prompt"><span class="fu-mission-ps">$</span><span class="fu-mission-cmd">{{ .cmd }}</span></div>
+          <h3 class="fu-mission-title">{{ .title }}</h3>
+          <p class="fu-mission-desc">{{ .desc }}</p>
+          <a href="{{ .url | relLangURL }}" class="fu-mission-link">{{ .link_label }}</a>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <section id="calendar" style="padding: 64px 0 96px;">
+    <div class="fu-container">
+      <div class="fu-cta is-lg">
+        <div style="max-width: 560px;">
+          <div class="fu-eyebrow">{{ $calendar.eyebrow }}</div>
+          <h2 class="fu-cta-h">{{ $calendar.title }}</h2>
+          <p class="fu-cta-p">{{ $calendar.body }} <code class="fu-code">{{ $calendar.code }}</code></p>
+        </div>
+        <a class="fu-btn fu-btn-secondary fu-btn-lg" href="{{ $calendar.cta.link }}">{{ $calendar.cta.label }}</a>
+      </div>
+    </div>
+  </section>
+{{ end }}

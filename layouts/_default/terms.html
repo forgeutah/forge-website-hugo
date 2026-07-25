@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <header class="fu-page-header">
+    <div class="fu-container">
+      <div class="fu-breadcrumb">
+        <a href="{{ site.Home.RelPermalink }}">home</a>
+        <span>/</span>
+        <span class="fu-crumb-current">{{ .Data.Plural }}</span>
+      </div>
+      <h1 class="fu-page-title">{{ .Title | humanize }}</h1>
+    </div>
+  </header>
+  <div class="fu-container fu-page-body">
+    <div class="fu-aside-list" style="max-width: 480px;">
+      {{ range .Data.Terms.Alphabetical }}
+        <a href="{{ .Page.RelPermalink }}"><span>{{ .Page.Title | humanize }}</span><span>{{ .Count }}</span></a>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

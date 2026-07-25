@@ -1,0 +1,68 @@
+{{ define "main" }}
+  {{ $slack := site.Params.slack }}
+  {{ $subtitle := .Params.subtitle | default "Notes from the volunteers — what we are building, what we learned, and what is coming next." }}
+  <header class="fu-page-header">
+    <div class="fu-container">
+      <div class="fu-breadcrumb">
+        <a href="{{ site.Home.RelPermalink }}">home</a>
+        <span>/</span>
+        <span class="fu-crumb-current">blog</span>
+      </div>
+      <h1 class="fu-page-title">Blog</h1>
+      <p class="fu-page-lead">{{ $subtitle }}</p>
+    </div>
+  </header>
+
+  {{ $posts := .RegularPages }}
+  {{ $count := len $posts }}
+  {{ $paginator := .Paginate $posts }}
+  <div style="padding: 48px 0 0;">
+    <div class="fu-blog-layout">
+      <div class="fu-blog-main">
+        {{ range $i, $p := $paginator.Pages }}
+          {{ $featured := and (eq $paginator.PageNumber 1) (eq $i 0) (gt $count 1) }}
+          {{ partial "components/fu-blog-card.html" (dict "page" $p "featured" $featured) }}
+        {{ end }}
+        {{ if eq $count 0 }}
+          <div class="fu-note-dashed"><span class="fu-ps">$</span><span>no posts yet <span class="fu-cursor">▮</span></span></div>
+        {{ else if eq $count 1 }}
+          <div class="fu-note-dashed"><span class="fu-ps">$</span><span>more posts in progress <span class="fu-cursor">▮</span></span></div>
+        {{ end }}
+        {{ if gt $paginator.TotalPages 1 }}
+          <div style="display: flex; gap: 12px; font-family: var(--font-mono); font-size: 13px; margin-top: 8px;">
+            {{ if $paginator.HasPrev }}<a class="fu-readmore" href="{{ $paginator.Prev.URL }}">← newer</a>{{ end }}
+            <span class="fu-mono-dim">page {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+            {{ if $paginator.HasNext }}<a class="fu-readmore" href="{{ $paginator.Next.URL }}">older →</a>{{ end }}
+          </div>
+        {{ end }}
+      </div>
+
+      <aside class="fu-blog-aside">
+        {{ with site.Taxonomies.categories }}
+          <div>
+            <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; CATEGORIES</div>
+            <div class="fu-aside-list">
+              {{ range $name, $items := . }}
+                <a href="{{ (print "categories/" ($name | urlize) "/") | relLangURL }}"><span>{{ $name | humanize }}</span><span>{{ len $items }}</span></a>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+        {{ with site.Taxonomies.tags }}
+          <div>
+            <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; TAGS</div>
+            <div class="fu-chips" style="margin-top: 12px;">
+              {{ range $name, $items := . }}
+                <a class="fu-chip" href="{{ (print "tags/" ($name | urlize) "/") | relLangURL }}">{{ $name | humanize }}</a>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+        <div class="fu-aside-note">
+          <p>Want to write for us? Pitch it in Slack.</p>
+          <a class="fu-btn fu-btn-secondary" href="{{ $slack }}">Join us on Slack</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+{{ end }}

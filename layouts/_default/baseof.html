@@ -1,0 +1,29 @@
+<!doctype html>
+<html
+  itemscope
+  lang="{{ site.LanguageCode | default `en-US` }}"
+  itemtype="http://schema.org/WebPage">
+  <head>
+    {{ partial "fu-head.html" . }}
+    {{ partialCached "fu-style.html" . }}
+  </head>
+  <body>
+    <div class="fu-root fu-app fu-page-shell">
+      {{ partial "fu-nav.html" . }}
+      <main>
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ partial "fu-footer.html" . }}
+    </div>
+
+    {{ if and site.Config.Services.GoogleAnalytics.ID (ne site.Config.Services.GoogleAnalytics.ID "G-MEASUREMENT_ID") }}
+      {{ template "_internal/google_analytics.html" . }}
+    {{ end }}
+
+    {{ $forgeJS := resources.Get "js/forge.js" }}
+    {{ if hugo.IsProduction }}
+      {{ $forgeJS = $forgeJS | minify | fingerprint }}
+    {{ end }}
+    <script defer src="{{ $forgeJS.RelPermalink }}"></script>
+  </body>
+</html>

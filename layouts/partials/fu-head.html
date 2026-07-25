@@ -1,0 +1,24 @@
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=5" />
+<meta name="theme-name" content="forge-terminal" />
+<meta name="color-scheme" content="dark" />
+
+<!-- favicon + manifest -->
+{{ partialCached "favicon" . }}
+{{ partialCached "manifest" . }}
+
+<!-- SEO / opengraph / twitter -->
+{{ partial "basic-seo.html" . }}
+
+<!-- fonts: preconnect (families are @imported by colors_and_type.css) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- custom head script + GTM (from theme modules) -->
+{{ partialCached "custom-script.html" . }}
+{{ partialCached "gtm.html" . }}
+
+<!-- search index -->
+{{ partial "search-index.html" . }}

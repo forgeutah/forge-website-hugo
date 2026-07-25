@@ -1,0 +1,32 @@
+{{ define "main" }}
+  {{ $slack := site.Params.slack }}
+  <header class="fu-page-header">
+    <div class="fu-container">
+      <div class="fu-breadcrumb">
+        <a href="{{ site.Home.RelPermalink }}">home</a>
+        <span>/</span>
+        <span class="fu-crumb-current">contact</span>
+      </div>
+      <h1 class="fu-page-title">Contact</h1>
+      <p class="fu-page-lead">The door's open. Come find us on Slack, or drop a line.</p>
+    </div>
+  </header>
+  <div class="fu-container-narrow fu-page-body">
+    {{ with .Content }}<div class="fu-prose" style="margin-bottom: 32px;">{{ . }}</div>{{ end }}
+    <div class="fu-cta is-lg">
+      <div>
+        <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; SAY HELLO</div>
+        <h2 class="fu-cta-h" style="margin-top: 10px;">hello@forgeutah.tech</h2>
+        <p class="fu-cta-p">Questions, ideas, or want to help organize something? Reach out.</p>
+      </div>
+      <a class="fu-btn fu-btn-primary fu-btn-lg" href="{{ $slack }}">Join us on Slack</a>
+    </div>
+    <div class="fu-chips" style="margin-top: 24px;">
+      <a class="fu-chip" href="mailto:hello@forgeutah.tech">email</a>
+      <a class="fu-chip" href="https://www.youtube.com/c/ForgeUtah">youtube</a>
+      <a class="fu-chip" href="https://github.com/forgeutah">github</a>
+      <a class="fu-chip" href="https://x.com/ForgeUtah">x</a>
+      <a class="fu-chip" href="https://www.linkedin.com/company/forgeutah">linkedin</a>
+    </div>
+  </div>
+{{ end }}

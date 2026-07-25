@@ -1,0 +1,43 @@
+{{- $p := .RelPermalink -}}
+{{- $isAbout := eq $p "/about/" -}}
+{{- $isMeetups := eq $p "/meetups/" -}}
+{{- $isRoundtables := eq $p "/roundtables/" -}}
+{{- $isGowest := eq $p "/gowest/" -}}
+{{- $isBlog := hasPrefix $p "/blog" -}}
+{{- $isCommunity := or $isMeetups $isRoundtables $isGowest -}}
+{{- $slack := site.Params.slack -}}
+{{- $calendar := site.Params.calendar -}}
+<nav class="fu-nav">
+  <a class="fu-brand" href="{{ site.Home.RelPermalink }}">
+    <img class="fu-brand-icon" src="{{ (resources.Get `images/forge-icon-color.svg`).RelPermalink }}" alt="Forge Utah flame and cog mark" />
+    <span class="fu-brand-text">forge<span class="fu-brand-dot">.</span>utah</span>
+  </a>
+  <div class="fu-nav-links">
+    <a class="fu-nav-link {{ if $isAbout }}is-active{{ end }}" href="{{ "about/" | relLangURL }}">about</a>
+    <div class="fu-nav-community">
+      <a class="fu-nav-link {{ if $isCommunity }}is-active{{ end }}" href="{{ "meetups/" | relLangURL }}"
+         data-fu-dropdown-toggle aria-haspopup="true" aria-expanded="false">community <span class="fu-nav-caret" aria-hidden="true">▾</span></a>
+      <div class="fu-dropdown" data-fu-dropdown-menu hidden>
+        <a href="{{ "meetups/" | relLangURL }}"><span class="fu-ps">&gt;</span>meetups</a>
+        <a href="{{ "roundtables/" | relLangURL }}"><span class="fu-ps">&gt;</span>roundtables</a>
+        <a href="{{ "gowest/" | relLangURL }}"><span class="fu-ps">&gt;</span>Go West Conference</a>
+      </div>
+    </div>
+    <a class="fu-nav-link" href="{{ $calendar }}">utah tech calendar</a>
+    <a class="fu-nav-link {{ if $isBlog }}is-active{{ end }}" href="{{ "blog/" | relLangURL }}">blog</a>
+  </div>
+  <div class="fu-nav-spacer"></div>
+  <div class="fu-nav-right">
+    <button class="fu-menu-btn" data-fu-menu-toggle aria-label="Toggle navigation menu" aria-expanded="false">[ <span data-fu-menu-label>menu</span> ]</button>
+    <a class="fu-btn fu-btn-primary" href="{{ $slack }}">Join us on Slack</a>
+  </div>
+  <div class="fu-mobile-panel" data-fu-menu-panel hidden>
+    <a class="fu-nav-link" href="{{ "about/" | relLangURL }}">about</a>
+    <div class="fu-mobile-group">community</div>
+    <a class="fu-nav-link fu-mobile-child" href="{{ "meetups/" | relLangURL }}"><span class="fu-ps">&gt;</span>meetups</a>
+    <a class="fu-nav-link fu-mobile-child" href="{{ "roundtables/" | relLangURL }}"><span class="fu-ps">&gt;</span>roundtables</a>
+    <a class="fu-nav-link fu-mobile-child" href="{{ "gowest/" | relLangURL }}"><span class="fu-ps">&gt;</span>Go West Conference</a>
+    <a class="fu-nav-link" href="{{ $calendar }}">utah tech calendar</a>
+    <a class="fu-nav-link" href="{{ "blog/" | relLangURL }}">blog</a>
+  </div>
+</nav>

@@ -2,14 +2,16 @@
 title: "Welcome to Forge Utah"
 meta_title: "About"
 description: "What we are about"
+subtitle: "A not-for-profit, run by volunteers, for the people who build Utah's technology."
+crumb: "about"
 image: "/images/icon-darkmode.png"
 draft: false
 ---
 
 #### Why Forge Exists
 
-Back in 2013 I loved seeing Beehive Startups and Silicon Slopes (now combined) emerge to organize Utah's local 
-tech community. Silicon Slopes is still an amazing org and I love reading their content and following what is 
+Back in 2013 I loved seeing Beehive Startups and Silicon Slopes (now combined) emerge to organize Utah's local
+tech community. Silicon Slopes is still an amazing org and I love reading their content and following what is
 going on with local businesses. But it seems like the focus is on CEOs, fundraising, and other business specific topics. As a programmer myself, I wanted a community for the engineers, developers, data scientist, etc. who were building the technology companies in Utah. I wanted a community for the actual technologists.
 
 So in 2015 Forge Utah Foundation was born to fill that need. We are an official 501(c)(3) not for profit company.
@@ -28,5 +30,3 @@ The Foundation is a place to learn, mainly from content shared by others, but al
 ##### Build
 
 The culmination of all the sharing and learning is ultimately to build. We want to empower our community to build the next generation of technology.
-
-

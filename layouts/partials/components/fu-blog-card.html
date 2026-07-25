@@ -1,0 +1,14 @@
+{{- /* Terminal blog card. Context: dict "page" <Page> "featured" <bool> */ -}}
+{{- $p := .page -}}
+{{- $featured := .featured -}}
+{{- $url := partial "fu-image-url.html" $p.Params.image -}}
+<article class="fu-blog-card{{ if $featured }} is-featured{{ end }}">
+  {{- with $url }}<a class="fu-blog-card-media" href="{{ $p.RelPermalink }}"><img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy" /></a>{{ end }}
+  <div class="fu-blog-card-body">
+    {{- with $p.Params.categories }}<div class="fu-chips">{{ range . }}<a class="fu-chip" href="{{ (print "categories/" (. | urlize) "/") | relLangURL }}">{{ . }}</a>{{ end }}</div>{{ end }}
+    <h2 class="fu-blog-card-title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h2>
+    <div class="fu-byline"><span class="fu-ps">$</span><span>{{ $p.Params.author }}</span></div>
+    <p class="fu-blog-card-excerpt">{{ $p.Summary | plainify | truncate 180 }}</p>
+    <a class="fu-readmore" href="{{ $p.RelPermalink }}">read more →</a>
+  </div>
+</article>

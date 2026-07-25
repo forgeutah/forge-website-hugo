@@ -1,4 +1,7 @@
 #################### default parameters ################################
+# Forge single-source-of-truth links (used across nav, footer, CTAs)
+slack = "https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g"
+calendar = "https://utahtechcalendar.com/"
 # favicon
 favicon = "images/favicon.png"
 # logo
@@ -14,8 +17,8 @@ logo_webp = true
 logo_text = "Forge Utah Foundation"
 # navbar fixed to top
 navbar_fixed = true
-# theme-mode
-theme_switcher = true
+# theme-mode — the terminal design is dark-only; the switcher is not rendered.
+theme_switcher = false
 theme_default = "dark" # available options [light/dark/system]
 # Main Sections
 mainSections = ["blog"]
