@@ -1,0 +1,10 @@
+{{- /* Design CTA panel for markdown-sourced pages.
+       Params: eyebrow, title, body, label, link, variant (fu-btn-primary|fu-btn-secondary) */ -}}
+<div class="fu-cta">
+  <div>
+    {{- with .Get "eyebrow" }}<div class="fu-eyebrow" style="color: var(--forge-ember);">{{ . }}</div>{{ end }}
+    <h2 class="fu-cta-h"{{ if .Get "eyebrow" }} style="margin-top: 10px;"{{ end }}>{{ .Get "title" }}</h2>
+    {{- with .Get "body" }}<p class="fu-cta-p">{{ . | markdownify }}</p>{{ end }}
+  </div>
+  <a class="fu-btn {{ .Get "variant" | default "fu-btn-secondary" }} fu-btn-lg" href="{{ .Get "link" }}">{{ .Get "label" }} <span class="fu-arrow">→</span></a>
+</div>

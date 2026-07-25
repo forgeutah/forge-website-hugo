@@ -2,10 +2,10 @@
 title: "Roundtables"
 meta_title: "Local technology roundtables run by Forge Utah Foundation"
 description: "Meet with your tech peers for advice"
+subtitle: "Small-group, no-slides conversations for engineering leaders and senior ICs."
+crumb: "roundtables"
 draft: false
 ---
-
-#### Roundtables
 
 Forge roundtables are small groups (typically no more than 10 people) that get together at least quarterly and talk about technology related issues and solicit and give advice. We have two pilots currently:
 

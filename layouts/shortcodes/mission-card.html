@@ -1,0 +1,9 @@
+{{- /* Design mission-card block for markdown-sourced pages.
+       Params: ps (prompt symbol, default "$"), cmd, title, body, url, link_label */ -}}
+{{- $ps := .Get "ps" | default "$" -}}
+<div class="fu-mission-card">
+  {{- with .Get "cmd" }}<div class="fu-mission-prompt"><span class="fu-mission-ps">{{ $ps }}</span><span class="fu-mission-cmd">{{ . }}</span></div>{{ end }}
+  {{- with .Get "title" }}<h3 class="fu-mission-title">{{ . }}</h3>{{ end }}
+  {{- with .Get "body" }}<p class="fu-mission-desc">{{ . | markdownify }}</p>{{ end }}
+  {{- if .Get "url" }}<a href="{{ .Get "url" }}" class="fu-mission-link">{{ .Get "link_label" | default "learn more →" }}</a>{{ end }}
+</div>
