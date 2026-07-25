@@ -3,8 +3,10 @@
   {{ $about := .Params.about }}
   {{ $community := .Params.community }}
   {{ $calendar := .Params.calendar }}
-  {{ $exterior := resources.Get "images/hero-clubhouse-exterior.png" }}
-  {{ $interior := resources.Get "images/hero-clubhouse-interior.png" }}
+  {{ $exterior := resources.Get "images/clubhouse-outside.png" }}
+  {{ $interior := resources.Get "images/clubhouse-inside.png" }}
+  {{ with $exterior }}{{ $exterior = .Resize "2400x webp q82" }}{{ end }}
+  {{ with $interior }}{{ $interior = .Resize "2400x webp q82" }}{{ end }}
 
   <header class="fu-hero-stage" data-fu-hero id="top">
     <div class="fu-hero-imgwrap">

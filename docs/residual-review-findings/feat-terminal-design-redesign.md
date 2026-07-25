@@ -20,17 +20,16 @@ Recorded at HEAD `101bf74`. These are review/implementation residuals that were
   uses a deliberately different `fu-post-header` and must stay out of the shared
   partial.
 
-## Proceeded-and-flagged (settled-decision conflict — KTD6)
+## Proceeded-and-flagged (settled-decision conflict — KTD6) — RESOLVED
 
-- **Interactive clubhouse hero images are placeholders.** KTD6 (user-directed:
-  full interactive hero incl. exporting the two Gemini clubhouse images) is fully
-  implemented as a *mechanism* (door cross-fade, neon flicker, back button), but
-  the two source PNGs (`uploads/Gemini_Generated_Image_*.png`) exceed the Claude
-  Design MCP `get_file` 256 KiB export cap (returned `truncated: true`), so they
-  could not be exported intact. `assets/images/hero-clubhouse-{exterior,interior}.png`
-  are currently copies of the existing `banner.png`. **Action:** drop the two real
-  clubhouse originals into those two paths (no code change needed — the template
-  already references them and runs them through Hugo image processing).
+- **Interactive clubhouse hero images.** KTD6 (user-directed: full interactive
+  hero incl. the two Gemini clubhouse images) is fully implemented. The source
+  PNGs exceeded the Claude Design MCP `get_file` 256 KiB export cap, so the hero
+  initially shipped with `banner.png` placeholders. **Resolved:** the user added
+  `assets/images/clubhouse-outside.png` (exterior) and `clubhouse-inside.png`
+  (interior); `layouts/index.html` now points at them and runs them through Hugo
+  image processing (`.Resize "2400x webp q82"`), taking the 9.6MB/7.8MB sources
+  down to ~482KB/~224KB WebP. The placeholder files were removed.
 
 ## Advisory / residual risks (informational — no action required)
 
