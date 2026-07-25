@@ -14,8 +14,8 @@ logo_webp = true
 logo_text = "Forge Utah Foundation"
 # navbar fixed to top
 navbar_fixed = true
-# theme-mode
-theme_switcher = true
+# theme-mode — the terminal design is dark-only; the switcher is not rendered.
+theme_switcher = false
 theme_default = "dark" # available options [light/dark/system]
 # Main Sections
 mainSections = ["blog"]

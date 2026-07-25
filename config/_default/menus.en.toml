@@ -12,6 +12,11 @@ name = "Utah Tech Calendar"
 url = "https://utahtechcalendar.com/"
 weight = 4
 
+[[main]]
+name = "Blog"
+url = "blog/"
+weight = 5
+
 # [[main]]
 # name = "Elements"
 # url = "elements/"
