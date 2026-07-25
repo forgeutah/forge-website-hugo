@@ -247,6 +247,15 @@ a:hover { color: #A5F3FC; }
 /* ---------- Go West two-goal grid ---------- */
 .fu-goals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 
+/* ---------- About page ---------- */
+.fu-about-main { max-width: 780px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 56px; }
+.fu-about-intro { display: flex; flex-direction: column; gap: 18px; }
+.fu-about-intro p { margin: 0; font-family: var(--font-sans); font-size: 17px; line-height: 1.7; color: var(--fg); }
+.fu-mission-quote { border-left: 2px solid var(--accent); padding: 4px 0 4px 24px; }
+.fu-mission-quote p { margin: 14px 0 0; font-family: var(--font-mono); font-weight: 500; font-size: clamp(18px, 2.2vw, 24px); line-height: 1.45; letter-spacing: -0.01em; color: var(--fg-max); }
+.fu-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 720px) { .fu-pillars { grid-template-columns: 1fr; } }
+
 /* Shared responsive card grid (taxonomy, related posts, author posts) */
 .fu-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
 
