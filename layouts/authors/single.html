@@ -1,0 +1,24 @@
+{{ define "main" }}
+  {{ $posts := where site.RegularPages "Params.author" .Title }}
+  <header class="fu-page-header">
+    <div class="fu-container">
+      <div class="fu-breadcrumb">
+        <a href="{{ site.Home.RelPermalink }}">home</a>
+        <span>/</span>
+        <a href="{{ "authors/" | relLangURL }}">authors</a>
+        <span>/</span>
+        <span class="fu-crumb-current">{{ .Title | lower }}</span>
+      </div>
+      <h1 class="fu-page-title">{{ .Title }}</h1>
+    </div>
+  </header>
+  <div class="fu-container-narrow" style="padding-top: 48px; padding-bottom: 80px;">
+    {{ with .Content }}<div class="fu-prose" style="margin-bottom: 32px;">{{ . }}</div>{{ end }}
+    {{ with $posts }}
+      <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; POSTS</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 16px;">
+        {{ range . }}{{ partial "components/fu-blog-card.html" (dict "page" . "featured" false) }}{{ end }}
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

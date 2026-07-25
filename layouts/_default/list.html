@@ -1,0 +1,22 @@
+{{ define "main" }}
+  {{ $subtitle := .Params.subtitle | default .Params.description }}
+  <header class="fu-page-header">
+    <div class="fu-container">
+      <div class="fu-breadcrumb">
+        <a href="{{ site.Home.RelPermalink }}">home</a>
+        <span>/</span>
+        <span class="fu-crumb-current">{{ .Title | lower }}</span>
+      </div>
+      <h1 class="fu-page-title">{{ .Title }}</h1>
+      {{ with $subtitle }}<p class="fu-page-lead">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+  <div class="fu-container-narrow" style="padding-top: 48px; padding-bottom: 80px;">
+    {{ with .Content }}<div class="fu-prose">{{ . }}</div>{{ end }}
+    {{ with .Pages }}
+      <div class="fu-aside-list" style="margin-top: 24px;">
+        {{ range . }}<a href="{{ .RelPermalink }}"><span>{{ .Title }}</span><span>→</span></a>{{ end }}
+      </div>
+    {{ end }}
+  </div>
+{{ end }}
