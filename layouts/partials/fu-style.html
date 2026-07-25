@@ -1,0 +1,11 @@
+{{/* Build the Forge terminal design-system bundle. Bypasses the theme's
+     Tailwind pipeline entirely; the dark terminal look is canonical. */}}
+{{ $tokens := resources.Get "css/forge/colors_and_type.css" }}
+{{ $kit := resources.Get "css/forge/kit.css" }}
+{{ $site := resources.Get "css/forge/site.css" }}
+{{ $bundle := slice $tokens $kit $site | resources.Concat "css/forge.css" }}
+{{ if hugo.IsProduction }}
+  {{ $bundle = $bundle | minify | fingerprint | resources.PostProcess }}
+{{ end }}
+<link rel="stylesheet" href="{{ $bundle.RelPermalink }}"
+  {{ with $bundle.Data.Integrity }}integrity="{{ . }}"{{ end }} />
