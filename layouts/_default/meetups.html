@@ -1,0 +1,50 @@
+{{ define "main" }}
+  {{ $crumb := .Params.crumb | default "meetups" }}
+  {{ $subtitle := .Params.subtitle | default .Params.description }}
+  {{ $slack := "https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g" }}
+  <header class="fu-page-header">
+    <div class="fu-container">
+      <div class="fu-breadcrumb">
+        <a href="{{ site.Home.RelPermalink }}">home</a>
+        <span>/</span>
+        <span class="fu-crumb-current">{{ $crumb }}</span>
+      </div>
+      <h1 class="fu-page-title">{{ .Title }}</h1>
+      {{ with $subtitle }}<p class="fu-page-lead">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+
+  <div style="padding: 48px 0 0;">
+    {{ with site.Data.meetups }}
+      <div class="fu-meetups-grid">
+        {{ range . }}
+          <a href="{{ .url }}" class="fu-mission-card fu-meetup-item">
+            <div class="fu-mission-prompt"><span class="fu-mission-ps">$</span><span class="fu-mission-cmd">{{ .slug }}</span></div>
+            <h2>{{ .name }}</h2>
+            <p>{{ .host }}</p>
+          </a>
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="fu-container"><div class="fu-empty"><span class="fu-ps">$</span> no meetups listed yet ▮</div></div>
+    {{ end }}
+
+    <div class="fu-container" style="margin-top: 40px; display: flex; flex-direction: column; gap: 16px;">
+      <div class="fu-cta">
+        <div>
+          <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; RECORDINGS</div>
+          <h2 class="fu-cta-h" style="margin-top: 10px;">Missed a meetup? Most talks are on YouTube</h2>
+          <p class="fu-cta-p">Years of Go, Kubernetes, data engineering, and AI talks, free to watch.</p>
+        </div>
+        <a class="fu-btn fu-btn-secondary fu-btn-lg" href="https://www.youtube.com/c/ForgeUtah">Watch on YouTube <span class="fu-arrow">→</span></a>
+      </div>
+      <div class="fu-cta">
+        <div>
+          <h2 class="fu-cta-h">Interested in helping organize a meetup?</h2>
+          <p class="fu-cta-p">Read the organizer guide first, then come find us on Slack.</p>
+        </div>
+        <a class="fu-btn fu-btn-secondary fu-btn-lg" href="https://docs.google.com/document/d/1X4akcd0oyUsRT5ALqTNkFPrl1-Q4Uy0kjz76MOYndRY/edit?usp=sharing">Check this out first <span class="fu-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+{{ end }}
