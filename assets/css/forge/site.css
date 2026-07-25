@@ -103,6 +103,7 @@ a:hover { color: #A5F3FC; }
   font-family: var(--font-sans); font-size: 17px; line-height: 1.6;
   color: var(--fg-muted);
 }
+.fu-page-body { padding-top: 48px; padding-bottom: 80px; }
 
 /* ---------- Landing hero (interactive clubhouse) ---------- */
 .fu-hero-stage {
@@ -245,6 +246,9 @@ a:hover { color: #A5F3FC; }
 
 /* ---------- Go West two-goal grid ---------- */
 .fu-goals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+
+/* Shared responsive card grid (taxonomy, related posts, author posts) */
+.fu-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
 
 /* ---------- Blog ---------- */
 .fu-blog-layout {

@@ -5,8 +5,8 @@
 {{- $isGowest := eq $p "/gowest/" -}}
 {{- $isBlog := hasPrefix $p "/blog" -}}
 {{- $isCommunity := or $isMeetups $isRoundtables $isGowest -}}
-{{- $slack := "https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g" -}}
-{{- $calendar := "https://utahtechcalendar.com/" -}}
+{{- $slack := site.Params.slack -}}
+{{- $calendar := site.Params.calendar -}}
 <nav class="fu-nav">
   <a class="fu-brand" href="{{ site.Home.RelPermalink }}">
     <img class="fu-brand-icon" src="{{ (resources.Get `images/forge-icon-color.svg`).RelPermalink }}" alt="Forge Utah flame and cog mark" />

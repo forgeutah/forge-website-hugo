@@ -9,7 +9,7 @@
       <h1 class="fu-page-title">{{ .Title | default "Authors" }}</h1>
     </div>
   </header>
-  <div class="fu-container-narrow" style="padding-top: 48px; padding-bottom: 80px;">
+  <div class="fu-container-narrow fu-page-body">
     <div class="fu-aside-list">
       {{ range .Pages }}<a href="{{ .RelPermalink }}"><span>{{ .Title }}</span><span>→</span></a>{{ end }}
     </div>

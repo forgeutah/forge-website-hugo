@@ -1,9 +1,7 @@
 {{- /* Terminal blog card. Context: dict "page" <Page> "featured" <bool> */ -}}
 {{- $p := .page -}}
 {{- $featured := .featured -}}
-{{- $src := $p.Params.image -}}
-{{- $url := $src -}}
-{{- with $src }}{{ $res := resources.Get (strings.TrimPrefix "/" .) }}{{ with $res }}{{ $url = .RelPermalink }}{{ end }}{{ end -}}
+{{- $url := partial "fu-image-url.html" $p.Params.image -}}
 <article class="fu-blog-card{{ if $featured }} is-featured{{ end }}">
   {{- with $url }}<a class="fu-blog-card-media" href="{{ $p.RelPermalink }}"><img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy" /></a>{{ end }}
   <div class="fu-blog-card-body">

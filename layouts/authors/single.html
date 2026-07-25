@@ -12,11 +12,11 @@
       <h1 class="fu-page-title">{{ .Title }}</h1>
     </div>
   </header>
-  <div class="fu-container-narrow" style="padding-top: 48px; padding-bottom: 80px;">
+  <div class="fu-container-narrow fu-page-body">
     {{ with .Content }}<div class="fu-prose" style="margin-bottom: 32px;">{{ . }}</div>{{ end }}
     {{ with $posts }}
       <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; POSTS</div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 16px;">
+      <div class="fu-card-grid" style="margin-top: 16px;">
         {{ range . }}{{ partial "components/fu-blog-card.html" (dict "page" . "featured" false) }}{{ end }}
       </div>
     {{ end }}

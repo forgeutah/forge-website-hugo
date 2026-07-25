@@ -1,0 +1,7 @@
+{{- /* Resolve a content image path to its published URL.
+       Input: the raw front-matter image string (may be "" or nil).
+       Returns the bundled-resource RelPermalink, else the raw path. */ -}}
+{{- $src := . -}}
+{{- $url := $src -}}
+{{- with $src }}{{ $res := resources.Get (strings.TrimPrefix "/" .) }}{{ with $res }}{{ $url = .RelPermalink }}{{ end }}{{ end -}}
+{{- return $url -}}

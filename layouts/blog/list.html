@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $slack := "https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g" }}
+  {{ $slack := site.Params.slack }}
   {{ $subtitle := .Params.subtitle | default "Notes from the volunteers — what we are building, what we learned, and what is coming next." }}
   <header class="fu-page-header">
     <div class="fu-container">
