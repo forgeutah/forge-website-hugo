@@ -7,7 +7,8 @@ status: "incubating"
 weight: 10
 meetup_host: "luma.com/ai-driven-development-utah"
 meetup_url: "https://luma.com/ai-driven-development-utah"
-organizers: []
+organizers:
+  - "Jay Askren"
 draft: false
 ---
 

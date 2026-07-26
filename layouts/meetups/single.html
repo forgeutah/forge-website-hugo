@@ -29,14 +29,17 @@
         <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; ORGANIZERS</div>
         <div class="fu-organizer-list">
           {{ range . }}
-            {{ $name := .name }}
+            {{/* An organizer may be a plain name string ("Jane Doe") or a map
+                 with name/slack/image. Support both so simple entries just work. */}}
+            {{ $name := . }}{{ $slack := "" }}{{ $image := "" }}
+            {{ if reflect.IsMap . }}{{ $name = .name }}{{ $slack = .slack }}{{ $image = .image }}{{ end }}
             {{ $avatar := "" }}
-            {{ with .image }}{{ $avatar = ($.Resources.GetMatch .) }}{{ end }}
+            {{ with $image }}{{ $avatar = ($.Resources.GetMatch .) }}{{ end }}
             <div class="fu-organizer">
               {{ with $avatar }}<img class="fu-organizer-avatar" src="{{ .RelPermalink }}" alt="{{ $name }}" width="40" height="40" />{{ end }}
               <div class="fu-organizer-meta">
                 <span class="fu-organizer-name">{{ $name }}</span>
-                {{ with .slack }}<span class="fu-organizer-slack">{{ . }}</span>{{ end }}
+                {{ with $slack }}<span class="fu-organizer-slack">{{ . }}</span>{{ end }}
               </div>
             </div>
           {{ end }}
