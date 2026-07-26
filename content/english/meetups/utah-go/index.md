@@ -7,7 +7,11 @@ status: "graduated"
 weight: 10
 meetup_host: "meetup.com/utahgophers"
 meetup_url: "https://www.meetup.com/utahgophers/"
-organizers: []
+organizers:
+  - name: "carsonoid"
+    slack_url: "https://forgeutah.slack.com/team/UHUHD5AG4"
+  - name: "Brandon Atkinson"
+    slack_url: "https://forgeutah.slack.com/team/U026T2XK248"
 draft: false
 ---
 
