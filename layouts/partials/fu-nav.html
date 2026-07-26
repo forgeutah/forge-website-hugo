@@ -13,7 +13,6 @@
     <span class="fu-brand-text">forge<span class="fu-brand-dot">.</span>utah</span>
   </a>
   <div class="fu-nav-links">
-    <a class="fu-nav-link {{ if $isAbout }}is-active{{ end }}" href="{{ "about/" | relLangURL }}">about</a>
     <div class="fu-nav-community">
       <a class="fu-nav-link {{ if $isCommunity }}is-active{{ end }}" href="{{ "meetups/" | relLangURL }}"
          data-fu-dropdown-toggle aria-haspopup="true" aria-expanded="false">community <span class="fu-nav-caret" aria-hidden="true">▾</span></a>
@@ -23,6 +22,7 @@
         <a href="{{ "gowest/" | relLangURL }}"><span class="fu-ps">&gt;</span>Go West Conference</a>
       </div>
     </div>
+    <a class="fu-nav-link {{ if $isAbout }}is-active{{ end }}" href="{{ "about/" | relLangURL }}">about</a>
     <a class="fu-nav-link" href="{{ $calendar }}">utah tech calendar</a>
     <a class="fu-nav-link {{ if $isBlog }}is-active{{ end }}" href="{{ "blog/" | relLangURL }}">blog</a>
   </div>
@@ -32,11 +32,11 @@
     <a class="fu-btn fu-btn-primary" href="{{ $slack }}">Join us on Slack</a>
   </div>
   <div class="fu-mobile-panel" data-fu-menu-panel hidden>
-    <a class="fu-nav-link" href="{{ "about/" | relLangURL }}">about</a>
     <div class="fu-mobile-group">community</div>
     <a class="fu-nav-link fu-mobile-child" href="{{ "meetups/" | relLangURL }}"><span class="fu-ps">&gt;</span>meetups</a>
     <a class="fu-nav-link fu-mobile-child" href="{{ "roundtables/" | relLangURL }}"><span class="fu-ps">&gt;</span>roundtables</a>
     <a class="fu-nav-link fu-mobile-child" href="{{ "gowest/" | relLangURL }}"><span class="fu-ps">&gt;</span>Go West Conference</a>
+    <a class="fu-nav-link" href="{{ "about/" | relLangURL }}">about</a>
     <a class="fu-nav-link" href="{{ $calendar }}">utah tech calendar</a>
     <a class="fu-nav-link" href="{{ "blog/" | relLangURL }}">blog</a>
   </div>

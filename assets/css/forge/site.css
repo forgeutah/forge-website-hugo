@@ -26,7 +26,8 @@ a:hover { color: #A5F3FC; }
 .fu-nav-caret { color: var(--fg-dim); font-size: 10px; margin-left: 4px; }
 
 .fu-dropdown {
-  position: absolute; top: 40px; left: 0;
+  position: absolute; top: 100%; left: 0;
+  margin-top: 6px;
   background: var(--bg-canvas);
   border: 1px solid var(--border-strong);
   border-radius: 2px;
@@ -37,6 +38,13 @@ a:hover { color: #A5F3FC; }
   z-index: 60;
 }
 .fu-dropdown[hidden] { display: none; }
+/* Reveal on hover / keyboard focus. The ::before bridge spans the margin gap
+   so moving the pointer from the toggle to the menu doesn't drop the hover. */
+.fu-nav-community::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 10px;
+}
+.fu-nav-community:hover .fu-dropdown,
+.fu-nav-community:focus-within .fu-dropdown { display: flex; }
 .fu-dropdown a {
   font-family: var(--font-mono);
   font-size: 13px;
@@ -244,8 +252,35 @@ a:hover { color: #A5F3FC; }
 .fu-meetup-item h2 { font-family: var(--font-mono); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; color: var(--fg-max); margin: 6px 0 0; }
 .fu-meetup-item p { margin: 6px 0 0; font-family: var(--font-sans); font-size: 14px; line-height: 1.5; color: var(--fg-muted); }
 
+/* ---------- Meetup detail: organizers ---------- */
+.fu-organizer-list {
+  margin-top: 16px; display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px;
+}
+.fu-organizer {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: 4px; padding: 12px 14px;
+}
+.fu-organizer-avatar {
+  width: 40px; height: 40px; border-radius: 4px; object-fit: cover; flex: none;
+  border: 1px solid var(--border);
+}
+.fu-organizer-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.fu-organizer-name { font-family: var(--font-mono); font-weight: 700; font-size: 14px; color: var(--fg-max); }
+.fu-organizer-slack { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+
 /* ---------- Go West two-goal grid ---------- */
 .fu-goals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+
+/* ---------- About page ---------- */
+.fu-about-main { max-width: 780px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 56px; }
+.fu-about-intro { display: flex; flex-direction: column; gap: 18px; }
+.fu-about-intro p { margin: 0; font-family: var(--font-sans); font-size: 17px; line-height: 1.7; color: var(--fg); }
+.fu-mission-quote { border-left: 2px solid var(--accent); padding: 4px 0 4px 24px; }
+.fu-mission-quote p { margin: 14px 0 0; font-family: var(--font-mono); font-weight: 500; font-size: clamp(18px, 2.2vw, 24px); line-height: 1.45; letter-spacing: -0.01em; color: var(--fg-max); }
+.fu-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 720px) { .fu-pillars { grid-template-columns: 1fr; } }
 
 /* Shared responsive card grid (taxonomy, related posts, author posts) */
 .fu-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }

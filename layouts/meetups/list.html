@@ -13,22 +13,35 @@
     </div>
   </header>
 
+  {{/* Default-bucket grouping: only `incubating` is matched explicitly; every
+       other meetup (including a missing or misspelled status) falls into
+       Graduated via complement, so nothing silently drops off the list. */}}
+  {{ $incubating := sort (where .RegularPages "Params.status" "incubating") "Weight" }}
+  {{ $graduated := sort (complement $incubating .RegularPages) "Weight" }}
+
   <div style="padding: 48px 0 0;">
-    {{ with site.Data.meetups }}
-      <div class="fu-meetups-grid">
-        {{ range . }}
-          <a href="{{ .url }}" class="fu-mission-card fu-meetup-item">
-            <div class="fu-mission-prompt"><span class="fu-mission-ps">$</span><span class="fu-mission-cmd">{{ .slug }}</span></div>
-            <h2>{{ .name }}</h2>
-            <p>{{ .host }}</p>
-          </a>
-        {{ end }}
-      </div>
+    {{ if or $graduated $incubating }}
+      {{ with $graduated }}
+        <div class="fu-container" style="margin-bottom: 16px;">
+          <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; GRADUATED</div>
+        </div>
+        <div class="fu-meetups-grid">
+          {{ range . }}{{ partial "components/fu-meetup-card.html" . }}{{ end }}
+        </div>
+      {{ end }}
+      {{ with $incubating }}
+        <div class="fu-container" style="margin: 44px auto 16px;">
+          <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; INCUBATING</div>
+        </div>
+        <div class="fu-meetups-grid">
+          {{ range . }}{{ partial "components/fu-meetup-card.html" . }}{{ end }}
+        </div>
+      {{ end }}
     {{ else }}
       <div class="fu-container"><div class="fu-empty"><span class="fu-ps">$</span> no meetups listed yet ▮</div></div>
     {{ end }}
 
-    <div class="fu-container" style="margin-top: 40px; display: flex; flex-direction: column; gap: 16px;">
+    <div class="fu-container" style="margin-top: 48px; display: flex; flex-direction: column; gap: 16px;">
       <div class="fu-cta">
         <div>
           <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; RECORDINGS</div>
