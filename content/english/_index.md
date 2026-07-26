@@ -18,8 +18,8 @@ hero:
     label: "Join us on Slack"
     link: "https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g"
   secondary_cta:
-    label: "Utah tech calendar"
-    link: "https://utahtechcalendar.com/"
+    label: "See Meetups"
+    link: "/meetups/"
 
 about:
   eyebrow: "> ABOUT"

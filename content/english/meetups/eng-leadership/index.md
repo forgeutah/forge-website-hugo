@@ -2,7 +2,7 @@
 title: "Engineering Leadership Utah"
 meta_title: "Engineering Leadership Utah — Forge Utah meetup"
 description: "A community for engineering managers, leads, and directors in Utah to share the craft of leading technical teams."
-slug: "eng-leadership"
+slug: "engineering-leadership-utah"
 status: "graduated"
 weight: 60
 meetup_host: "lu.ma/engineering-leadership-utah"

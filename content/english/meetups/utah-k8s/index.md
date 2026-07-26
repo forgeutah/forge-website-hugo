@@ -2,7 +2,7 @@
 title: "Utah Kubernetes"
 meta_title: "Utah Kubernetes — Forge Utah meetup"
 description: "A meetup for Utah engineers running, operating, and learning Kubernetes and the cloud-native ecosystem around it."
-slug: "utah-k8s"
+slug: "utah-kubernetes-meetup"
 status: "graduated"
 weight: 20
 meetup_host: "meetup.com/Utah-Kubernetes-Meetup"

@@ -2,7 +2,7 @@
 title: "St George Developers"
 meta_title: "St George Developers — Forge Utah meetup"
 description: "Southern Utah's developer community, meeting in St George for talks, projects, and connection across the local tech scene."
-slug: "st-george"
+slug: "st-george-developers"
 status: "graduated"
 weight: 70
 meetup_host: "meetup.com/saint-george-web-developers-meetup"

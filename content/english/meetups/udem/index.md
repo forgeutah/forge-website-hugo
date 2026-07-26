@@ -2,7 +2,7 @@
 title: "Utah Data Engineering Meetup (UDEM)"
 meta_title: "Utah Data Engineering Meetup (UDEM) — Forge Utah meetup"
 description: "Utah's community for data engineers — pipelines, warehouses, streaming, and the tooling that moves data at scale."
-slug: "udem"
+slug: "utah-data-engineering-meetup"
 status: "graduated"
 weight: 30
 meetup_host: "meetup.com/utah-data-engineering-meetup"
