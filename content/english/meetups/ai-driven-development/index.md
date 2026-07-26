@@ -1,5 +1,5 @@
 ---
-title: "AI Driven Development"
+title: "AI Driven Development Utah"
 meta_title: "AI Driven Development Utah — Forge Utah meetup"
 description: "A meetup for Utah developers using AI to change how they build software — agents, coding assistants, and AI-driven workflows in practice."
 slug: "ai-driven-development"
