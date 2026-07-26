@@ -26,7 +26,8 @@ a:hover { color: #A5F3FC; }
 .fu-nav-caret { color: var(--fg-dim); font-size: 10px; margin-left: 4px; }
 
 .fu-dropdown {
-  position: absolute; top: 40px; left: 0;
+  position: absolute; top: 100%; left: 0;
+  margin-top: 6px;
   background: var(--bg-canvas);
   border: 1px solid var(--border-strong);
   border-radius: 2px;
@@ -37,6 +38,13 @@ a:hover { color: #A5F3FC; }
   z-index: 60;
 }
 .fu-dropdown[hidden] { display: none; }
+/* Reveal on hover / keyboard focus. The ::before bridge spans the margin gap
+   so moving the pointer from the toggle to the menu doesn't drop the hover. */
+.fu-nav-community::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 10px;
+}
+.fu-nav-community:hover .fu-dropdown,
+.fu-nav-community:focus-within .fu-dropdown { display: flex; }
 .fu-dropdown a {
   font-family: var(--font-mono);
   font-size: 13px;
