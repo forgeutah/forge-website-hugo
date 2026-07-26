@@ -1,0 +1,62 @@
+{{ define "main" }}
+  {{ $crumb := .Params.crumb | default "meetups" }}
+  {{ $subtitle := .Params.subtitle | default .Params.description }}
+  <header class="fu-page-header">
+    <div class="fu-container">
+      <div class="fu-breadcrumb">
+        <a href="{{ site.Home.RelPermalink }}">home</a>
+        <span>/</span>
+        <span class="fu-crumb-current">{{ $crumb }}</span>
+      </div>
+      <h1 class="fu-page-title">{{ .Title }}</h1>
+      {{ with $subtitle }}<p class="fu-page-lead">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+
+  {{/* Default-bucket grouping: only `incubating` is matched explicitly; every
+       other meetup (including a missing or misspelled status) falls into
+       Graduated via complement, so nothing silently drops off the list. */}}
+  {{ $incubating := sort (where .RegularPages "Params.status" "incubating") "Weight" }}
+  {{ $graduated := sort (complement $incubating .RegularPages) "Weight" }}
+
+  <div style="padding: 48px 0 0;">
+    {{ if or $graduated $incubating }}
+      {{ with $graduated }}
+        <div class="fu-container" style="margin-bottom: 16px;">
+          <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; GRADUATED</div>
+        </div>
+        <div class="fu-meetups-grid">
+          {{ range . }}{{ partial "components/fu-meetup-card.html" . }}{{ end }}
+        </div>
+      {{ end }}
+      {{ with $incubating }}
+        <div class="fu-container" style="margin: 44px 0 16px;">
+          <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; INCUBATING</div>
+        </div>
+        <div class="fu-meetups-grid">
+          {{ range . }}{{ partial "components/fu-meetup-card.html" . }}{{ end }}
+        </div>
+      {{ end }}
+    {{ else }}
+      <div class="fu-container"><div class="fu-empty"><span class="fu-ps">$</span> no meetups listed yet ▮</div></div>
+    {{ end }}
+
+    <div class="fu-container" style="margin-top: 48px; display: flex; flex-direction: column; gap: 16px;">
+      <div class="fu-cta">
+        <div>
+          <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; RECORDINGS</div>
+          <h2 class="fu-cta-h" style="margin-top: 10px;">Missed a meetup? Most talks are on YouTube</h2>
+          <p class="fu-cta-p">Years of Go, Kubernetes, data engineering, and AI talks, free to watch.</p>
+        </div>
+        <a class="fu-btn fu-btn-secondary fu-btn-lg" href="https://www.youtube.com/c/ForgeUtah">Watch on YouTube <span class="fu-arrow">→</span></a>
+      </div>
+      <div class="fu-cta">
+        <div>
+          <h2 class="fu-cta-h">Interested in helping organize a meetup?</h2>
+          <p class="fu-cta-p">Read the organizer guide first, then come find us on Slack.</p>
+        </div>
+        <a class="fu-btn fu-btn-secondary fu-btn-lg" href="https://docs.google.com/document/d/1X4akcd0oyUsRT5ALqTNkFPrl1-Q4Uy0kjz76MOYndRY/edit?usp=sharing">Check this out first <span class="fu-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+{{ end }}

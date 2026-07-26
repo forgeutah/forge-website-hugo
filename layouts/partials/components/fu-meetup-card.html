@@ -1,0 +1,8 @@
+{{- /* Meetup card. Context: a single meetup page.
+       Links internally to the meetup's detail page (not the external URL).
+       Reused by the meetups list page and the detail page's related strip. */ -}}
+<a href="{{ .RelPermalink }}" class="fu-mission-card fu-meetup-item">
+  <div class="fu-mission-prompt"><span class="fu-mission-ps">$</span><span class="fu-mission-cmd">{{ .Params.slug | default .File.ContentBaseName }}</span></div>
+  <h2>{{ .Title }}</h2>
+  {{ with .Params.meetup_host }}<p>{{ . }}</p>{{ end }}
+</a>
