@@ -7,6 +7,8 @@ status: "incubating"
 weight: 10
 meetup_host: "luma.com/ai-driven-development-utah"
 meetup_url: "https://luma.com/ai-driven-development-utah"
+slack_channel: "#ai-driven-development"
+slack_channel_url: "https://forgeutah.slack.com/archives/C0AHW3AB2GL"
 organizers:
   - name: "Jay Askren"
     slack_url: "https://forgeutah.slack.com/team/UUB899D97"
