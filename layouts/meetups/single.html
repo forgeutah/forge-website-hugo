@@ -1,0 +1,72 @@
+{{ define "main" }}
+  {{ $slack := site.Params.slack }}
+
+  <header class="fu-post-header">
+    <div class="fu-container-narrow">
+      <div class="fu-breadcrumb">
+        <a href="{{ site.Home.RelPermalink }}">home</a>
+        <span>/</span>
+        <a href="{{ "meetups/" | relLangURL }}">meetups</a>
+        <span>/</span>
+        <span class="fu-crumb-current">{{ .Params.slug | default (.Title | lower) }}</span>
+      </div>
+      {{ with .Params.status }}
+        <div class="fu-chips" style="margin-top: 24px;"><span class="fu-chip">{{ . }}</span></div>
+      {{ end }}
+      <h1 class="fu-page-title" style="margin-top: 18px; font-size: clamp(26px, 3.4vw, 40px);">{{ .Title }}</h1>
+      {{ with .Params.description }}<p class="fu-page-lead" style="margin-top: 18px;">{{ . }}</p>{{ end }}
+      {{ with .Params.meetup_url }}
+        <div style="margin-top: 24px;">
+          <a class="fu-btn fu-btn-primary fu-btn-lg" href="{{ . }}" target="_blank" rel="noopener">Visit{{ with $.Params.meetup_host }} on {{ . }}{{ end }} <span class="fu-arrow">→</span></a>
+        </div>
+      {{ end }}
+    </div>
+  </header>
+
+  <div class="fu-container-narrow" style="padding-top: 48px; padding-bottom: 0;">
+    {{ with .Params.organizers }}
+      <div class="fu-meetup-organizers" style="margin-bottom: 40px;">
+        <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; ORGANIZERS</div>
+        <div class="fu-organizer-list">
+          {{ range . }}
+            {{ $name := .name }}
+            {{ $avatar := "" }}
+            {{ with .image }}{{ $avatar = ($.Resources.GetMatch .) }}{{ end }}
+            <div class="fu-organizer">
+              {{ with $avatar }}<img class="fu-organizer-avatar" src="{{ .RelPermalink }}" alt="{{ $name }}" width="40" height="40" />{{ end }}
+              <div class="fu-organizer-meta">
+                <span class="fu-organizer-name">{{ $name }}</span>
+                {{ with .slack }}<span class="fu-organizer-slack">{{ . }}</span>{{ end }}
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+
+    {{ with .Content }}<article class="fu-prose">{{ . }}</article>{{ end }}
+
+    <div class="fu-post-footer">
+      <a class="fu-readmore" href="{{ "meetups/" | relLangURL }}">← all meetups</a>
+    </div>
+
+    {{ $related := where site.RegularPages "Section" "meetups" }}
+    {{ $related = (where $related ".Title" "!=" .Title) | shuffle | first 3 }}
+    {{ with $related }}
+      <div style="margin: 8px 0 0;">
+        <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; OTHER MEETUPS</div>
+        <div class="fu-meetups-grid" style="margin-top: 16px;">
+          {{ range . }}{{ partial "components/fu-meetup-card.html" . }}{{ end }}
+        </div>
+      </div>
+    {{ end }}
+
+    <div class="fu-cta" style="margin-top: 40px;">
+      <div>
+        <h2 class="fu-cta-h">Want to help run a meetup?</h2>
+        <p class="fu-cta-p">Forge is a community project. Come find us on Slack.</p>
+      </div>
+      <a class="fu-btn fu-btn-primary fu-btn-lg" href="{{ $slack }}">Join us on Slack</a>
+    </div>
+  </div>
+{{ end }}
