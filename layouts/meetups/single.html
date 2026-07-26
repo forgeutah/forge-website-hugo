@@ -29,17 +29,21 @@
         <div class="fu-eyebrow" style="color: var(--forge-ember);">&gt; ORGANIZERS</div>
         <div class="fu-organizer-list">
           {{ range . }}
-            {{/* An organizer may be a plain name string ("Jane Doe") or a map
-                 with name/slack/image. Support both so simple entries just work. */}}
-            {{ $name := . }}{{ $slack := "" }}{{ $image := "" }}
-            {{ if reflect.IsMap . }}{{ $name = .name }}{{ $slack = .slack }}{{ $image = .image }}{{ end }}
+            {{/* An organizer may be a plain name string ("Jane Doe") or a map with
+                 name, slack (handle text), slack_url (Slack profile link), and image. */}}
+            {{ $name := . }}{{ $slack := "" }}{{ $slackURL := "" }}{{ $image := "" }}
+            {{ if reflect.IsMap . }}{{ $name = .name }}{{ $slack = .slack }}{{ $slackURL = .slack_url }}{{ $image = .image }}{{ end }}
             {{ $avatar := "" }}
             {{ with $image }}{{ $avatar = ($.Resources.GetMatch .) }}{{ end }}
             <div class="fu-organizer">
               {{ with $avatar }}<img class="fu-organizer-avatar" src="{{ .RelPermalink }}" alt="{{ $name }}" width="40" height="40" />{{ end }}
               <div class="fu-organizer-meta">
                 <span class="fu-organizer-name">{{ $name }}</span>
-                {{ with $slack }}<span class="fu-organizer-slack">{{ . }}</span>{{ end }}
+                {{ if $slackURL }}
+                  <a class="fu-organizer-slack" href="{{ $slackURL }}" target="_blank" rel="noopener">{{ $slack | default "Slack profile" }} <span class="fu-arrow">→</span></a>
+                {{ else }}
+                  {{ with $slack }}<span class="fu-organizer-slack">{{ . }}</span>{{ end }}
+                {{ end }}
               </div>
             </div>
           {{ end }}

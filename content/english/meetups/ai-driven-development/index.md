@@ -8,7 +8,8 @@ weight: 10
 meetup_host: "luma.com/ai-driven-development-utah"
 meetup_url: "https://luma.com/ai-driven-development-utah"
 organizers:
-  - "Jay Askren"
+  - name: "Jay Askren"
+    slack_url: "https://forgeutah.slack.com/team/UUB899D97"
 draft: false
 ---
 
