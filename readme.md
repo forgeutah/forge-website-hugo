@@ -1,221 +1,137 @@
-<h1 align="center">Hugo + Tailwind CSS Starter and Boilerplate</h1>
+# Forge Utah Foundation — Website
 
-<p align="center">Hugoplate is a free starter template built with Hugo, and TailwindCSS, providing everything you need to jumpstart your Hugo project and save valuable time.</p>
+The website for **Forge Utah Foundation**, a volunteer-run, not-for-profit community for Utah's developers, data scientists, SREs, and tinkerers. It's the home for our meetups, roundtables, hack nights, and the Go West Conference — no sponsors pushing product, no recruiter pitches, just people who build things showing each other how.
 
-<p align="center">Made with ♥ by <a href="https://zeon.studio/"> Zeon Studio</a></p>
-<p align=center> If you find this project useful, please give it a ⭐ to show your support.</p>
-
-<h2 align="center"> <a target="_blank" href="https://hugoplate.netlify.app/" rel="nofollow">👀 Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-hugoplate-netlify-app/6lyxjw6t4r?form_factor=desktop">Page Speed (95+)🚀</a>
-</h2>
-
-<p align="center">
-  <a href="https://github.com/gohugoio/hugo/releases/tag/v0.118.2" alt="Contributors">
-    <img src="https://img.shields.io/static/v1?label=min-HUGO-version&message=0.118.2&color=f00&logo=hugo" />
-  </a>
-
-  <a href="https://github.com/zeon-studio/hugoplate/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/zeon-studio/hugoplate" alt="license">
-  </a>
-
-  <a href="https://github.com/zeon-studio/hugoplate">
-    <img src="https://img.shields.io/github/languages/code-size/zeon-studio/hugoplate" alt="code size">
-  </a>
-
-  <a href="https://github.com/zeon-studio/hugoplate/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zeon-studio/hugoplate" alt="contributors">
-  </a>
-</p>
-
-## 🎁 What's Included
-
-We have included almost everything you need to start your Hugo project. Let's see what's included in this template:
-
-### 📌 Key Features
-
-- 👥 Multi-Authors
-- 🎯 Similar Posts Suggestion
-- 🔍 Search Functionality
-- 🌑 Dark Mode
-- 🏷️ Tags & Categories
-- 🔗 Netlify setting pre-configured
-- 📞 Support contact form
-- 📱 Fully responsive
-- 📝 Write and update content in Markdown
-- 💬 Disqus Comment
-- 🔳 Syntax Highlighting
-
-### 📄 15+ Pre-designed Pages
-
-- 🏠 Homepage
-- 👤 About
-- 📞 Contact
-- 👥 Authors
-- 👤 Author Single
-- 📝 Blog
-- 📝 Blog Single
-- 🚫 Custom 404
-- 💡 Elements
-- 📄 Privacy Policy
-- 🏷️ Tags
-- 🏷️ Tag Single
-- 🗂️ Categories
-- 🗂️ Category Single
-- 🔍 Search
-
-### 📦 Tech Stack
-
-- [Hugo](https://gohugo.io/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [PostCSS](https://postcss.org/)
-- [PurgeCSS](https://purgecss.com/)
-- [AutoPrefixer](https://autoprefixer.github.io/)
-- [Hugo Modules](https://gohugo.io/hugo-modules/)
-- [Markdown](https://markdownguide.org/)
-- [Prettier](https://prettier.io/)
-- [Jshint](https://jshint.com/)
-- [Netlify](https://www.netlify.com/)
-- [Vercel](https://vercel.com/)
-- [Github Actions](https://github.com/features/actions)
-- [Gitlab Ci](https://docs.gitlab.com/ee/ci/)
-- [AWS Amplify](https://aws.amazon.com/amplify/)
+Built with [Hugo](https://gohugo.io/) and a custom dark-only "terminal" design system.
 
 ---
 
-## 🚀 Getting Started
+## Tech stack
 
-First you need to [clone](https://github.com/zeon-studio/hugoplate) or [download](https://github.com/zeon-studio/hugoplate/archive/refs/heads/main.zip) the template repository, and then let's get started with the following process:
+- **[Hugo](https://gohugo.io/) (Extended)** — static site generator. The [hugoplate](https://github.com/zeon-studio/hugoplate) theme is pulled in as a Hugo module base (SEO partials, search index, module plumbing); the entire visual layer is overridden by our own layouts and CSS.
+- **Custom terminal design system** — hand-written CSS in `assets/css/forge/` and vanilla JS in `assets/js/forge.js`. Dark-only. No framework runtime.
+- **Go modules** — the theme and its dependencies are managed via `go.mod`.
+- **PostCSS + PurgeCSS + Tailwind** — from the theme base; most of the site's look is the custom `fu-*` CSS, not utility classes.
 
-### ⚙️ Prerequisites
+---
 
-To start using this template, you need to have some prerequisites installed on your machine.
+## Getting started
 
-- [Hugo Extended v0.115+](https://gohugo.io/installation/)
-- [Node v18+](https://nodejs.org/en/download/)
-- [Go v1.20+](https://go.dev/doc/install)
+### Prerequisites
 
-### 👉 Project Setup
+- **Hugo Extended** `0.118.2+` (CI pins `0.118.2`)
+- **Node** `18+`
+- **Go** `1.20+`
 
-We build this custom script to make your project setup easier. It will create a new Hugo theme folder, and clone the Hugoplate theme into it. Then move the exampleSite folder into the root directory. So that you can start your Hugo server without going into the exampleSite folder. Use the following command to setup your project.
-
-```bash
-npm run project-setup
-```
-
-### 👉 Install Dependencies
-
-Install all the dependencies using the following command.
+### Run it locally
 
 ```bash
 npm install
+npm run dev          # hugo server at http://localhost:1313
 ```
 
-### 👉 Development Command
+If `themes/hugoplate` is missing (fresh clone that didn't fetch modules), run `npm run project-setup` once first — this is what CI does on every build.
 
-Start the development server using the following command.
+### Build
 
 ```bash
-npm run dev
+npm run build        # hugo --gc --minify -> ./public
 ```
 
-### 🎬 Still Confused? Watch a Quick Video
-
-https://github.com/zeon-studio/hugoplate/assets/58769763/c260c0ae-91be-42ce-b8db-aa7f11f777bd
+Useful scripts (see `package.json`): `npm run preview` (production-mode server), `npm run format` (Prettier), `npm run update-modules`.
 
 ---
 
-## 📝 Customization
+## Project structure
 
-This template has been designed with a lot of customization options in mind. You can customize almost anything you want, including:
-
-### 👉 Site Config
-
-You can change the site title, base URL, language, theme, plugins, and more from the `hugo.toml` file.
-
-### 👉 Site Params
-
-You can customize all the parameters from the `config/_default/params.toml` file. This includes the logo, favicon, search, SEO metadata, and more.
-
-### 👉 Colors and Fonts
-
-You can change the colors and fonts from the `data/theme.json` file. This includes the primary color, secondary color, font family, and font size.
-
-### 👉 Social Links
-
-You can change the social links from the `data/social.json` file. Add your social links here, and they will automatically be displayed on the site.
-
----
-
-## 🛠 Advanced Usage
-
-We have added some custom scripts to make your life easier. You can use these scripts to help you with your development.
-
-### 👉 Update Modules
-
-We have added a lot of modules to this template. You can update all the modules using the following command.
-
-```bash
-npm run update-modules
+```text
+content/english/          # all site content
+  _index.md               #   homepage (hero, community cards, about, calendar — data-driven front matter)
+  meetups/                #   meetups content section (one leaf bundle per meetup)
+  blog/                   #   blog posts
+  pages/                  #   standalone pages (about, roundtables, gowest, contact, ...)
+  authors/                #   blog author profiles
+layouts/                  # templates that override the theme
+  meetups/                #   list.html (grouped landing) + single.html (per-meetup SEO page)
+  blog/, authors/, _default/, partials/, shortcodes/
+  partials/fu-nav.html    #   main nav (hardcoded, not menu-config driven)
+  partials/fu-footer.html
+assets/
+  css/forge/              # the design system
+    colors_and_type.css   #   design tokens (colors, fonts) + @font imports
+    kit.css               #   vendored component styles (buttons, cards, nav, grids)
+    site.css              #   project overrides (hero, dropdown, mobile menu, prose, chips)
+  js/forge.js             # nav dropdown, mobile menu, interactive hero — no dependencies
+data/                     # theme.json, social.json
+config/_default/          # hugo.toml lives at root; params, menus, modules here
+docs/plans/               # implementation plans (Compound Engineering workflow)
 ```
 
-### 👉 Remove Dark Mode
+Key config: `hugo.toml` (site title, baseURL, outputs, permalinks), `config/_default/params.toml` (Slack invite, calendar link, SEO), `config/_default/menus.en.toml` (used for the footer; the desktop nav is hardcoded in `fu-nav.html`).
 
-If you want to remove dark mode from your project, then you have to do it manually from everywhere. So we build a custom script to do it for you. you can use the following command to remove dark mode from your project.
+---
 
-```bash
-npm run remove-darkmode
+## Editing content
+
+### Add or update a meetup
+
+Each meetup is a Hugo **leaf bundle** at `content/english/meetups/<slug>/index.md`. The list page groups meetups into **Graduated** (established) and **Incubating** (newer pilots); each meetup gets its own SEO landing page at `/meetups/<slug>/`.
+
+```yaml
+---
+title: "Utah Go User Group"
+meta_title: "Utah Go User Group — Forge Utah meetup"   # <title> / OG
+description: "One-line summary — used for the SEO meta and the detail-page lead."
+slug: "utah-go"
+status: "graduated"          # graduated | incubating  (anything not "incubating" -> Graduated)
+weight: 10                   # ordering within its group (ascending)
+meetup_host: "meetup.com/utahgophers"                  # display label on cards + the Visit button
+meetup_url: "https://www.meetup.com/utahgophers/"      # external link
+slack_channel: "#utah-go"                              # optional
+slack_channel_url: "https://forgeutah.slack.com/..."   # optional — makes the Slack channel clickable
+organizers:                  # optional; each may be a plain name OR a map
+  - "Jane Doe"
+  - name: "John Roe"
+    slack: "@john"                                       # optional handle text
+    slack_url: "https://forgeutah.slack.com/team/U0..."  # optional -> links the Slack line
+    image: "john.jpg"                                    # optional avatar file in this meetup's folder
+draft: false
+---
+
+Markdown body here becomes the indexable SEO copy on the detail page —
+describe the audience, cadence, and what to expect.
 ```
 
----
+To retire a meetup, delete its folder. To move it between groups, change `status`. Organizer avatars are optional; drop an image file into the meetup's folder and reference it by filename.
 
-## 🚀 Build And Deploy
+### Add a blog post
 
-After you finish your development, you can build or deploy your project almost everywhere. Let's see the process:
+Create a Markdown file in `content/english/blog/` with standard front matter (`title`, `date`, `description`, `image`, `categories`, `tags`, `author`). See `content/english/blog/` for examples.
 
-### 👉 Build Command
+### Homepage & nav
 
-To build your project locally, you can use the following command. It will purge all the unused CSS and minify all the files.
-
-```bash
-npm run build
-```
-
-### 👉 Deploy Site
-
-We have provided 5 different deploy platform configurations with this template, so you can deploy easily.
-
-- [Netlify](https://www.netlify.com/)
-- [Vercel](https://vercel.com/)
-- [Github Actions](https://github.com/features/actions)
-- [Gitlab Ci](https://docs.gitlab.com/ee/ci/)
-- [AWS Amplify](https://aws.amazon.com/amplify/)
-
-And if you want to Host some other hosting platforms. then you can build your project, and you will get a `public` folder. that you can copy and paste on your hosting platform.
-
-> **Note:** You must change the `baseURL` in the `hugo.toml` file. Otherwise, your site will not work properly.
+The homepage is data-driven from the front matter of `content/english/_index.md` (hero, community cards, about, calendar sections). The main navigation is hardcoded in `layouts/partials/fu-nav.html`.
 
 ---
 
-## 🔒 Guide to Staying Compliant
+## Design system notes
 
-### 🐞 Reporting Issues
-
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/zeon-studio/hugoplate/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/zeon-studio/hugoplate/issues).
-
-### 📝 License
-
-Copyright (c) 2023 - Present, Designed & Developed by [Zeon Studio](https://zeon.studio/)
-
-**Code License:** Released under the [MIT](https://github.com/zeon-studio/hugoplate/blob/main/LICENSE) license.
-
-**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
+The look is a deliberate dark, terminal-inspired aesthetic. When building new UI, **reuse the existing `fu-*` components** (`fu-btn`, `fu-mission-card`, `fu-container`, `fu-eyebrow`, `fu-cta`, etc.) and design tokens (`var(--fg-max)`, `var(--accent)`, `var(--forge-ember)`, `var(--font-mono)`, …) rather than reaching for Tailwind utilities or raw hex — the tokens live in `assets/css/forge/colors_and_type.css`. New classes must be referenced in templates so they survive PurgeCSS.
 
 ---
 
-## 🖼️ Showcase 
+## Deploy
 
-List of projects people are building with **Hugoplate**! Have you built a project with Hugoplate? Submit it by creating a pull request and we'll feature it here!
+Deploy configs are checked in for **Netlify** (`netlify.toml`), **AWS Amplify** (`amplify.yml`), **Vercel** (`vercel.json` / `vercel-build.sh`), and **GitLab CI** (`.gitlab-ci.yml`). All pin **Hugo Extended 0.118.2** and **Go 1.20.5**, and build with `project-setup` (fetch theme module) followed by `hugo --gc --minify` to `public/`.
 
-| [![Open Neuromorphic](https://tinyurl.com/hp7avtje)](https://open-neuromorphic.org/) | [![AI Models](https://tinyurl.com/mu4p7dhb)](https://aimodels.org/) | [![Hugobricks](https://tinyurl.com/4x3uwhm9)](https://www.hugobricks.preview.usecue.com/) |
-|:---:|:---:|:---:|
-| **Open Neuromorphic** | **AI Models** | **Hugobricks** |
+---
+
+## Contributing
+
+Forge is a community project — contributions are welcome. Work on a feature branch and open a pull request against `main`. Come find us on **[Slack](https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g)** to say hi, pitch a blog post, or ask about helping organize a meetup.
+
+---
+
+## License
+
+The site code is released under the [MIT](LICENSE) license (inherited from the hugoplate theme base). Forge Utah Foundation branding, imagery, and written content are © Forge Utah Foundation and are not covered by that license.
