@@ -85,8 +85,8 @@ description: "One-line summary — used for the SEO meta and the detail-page lea
 slug: "utah-go"
 status: "graduated"          # graduated | incubating  (anything not "incubating" -> Graduated)
 weight: 10                   # ordering within its group (ascending)
-meetup_host: "meetup.com/utahgophers"                  # display label on cards + the Visit button
-meetup_url: "https://www.meetup.com/utahgophers/"      # external link
+meetup_host: "luma.com/utah-golang"                  # display label on cards + the Visit button
+meetup_url: "https://luma.com/utah-golang"      # external link
 slack_channel: "#utah-go"                              # optional
 slack_channel_url: "https://forgeutah.slack.com/..."   # optional — makes the Slack channel clickable
 organizers:                  # optional; each may be a plain name OR a map
