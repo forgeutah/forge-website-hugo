@@ -5,8 +5,8 @@ description: "A meetup for Utah engineers running, operating, and learning Kuber
 slug: "utah-kubernetes-meetup"
 status: "graduated"
 weight: 20
-meetup_host: "meetup.com/Utah-Kubernetes-Meetup"
-meetup_url: "https://www.meetup.com/Utah-Kubernetes-Meetup/"
+meetup_host: "luma.com/utah-kubernetes"
+meetup_url: "https://luma.com/utah-kubernetes"
 organizers: []
 draft: false
 ---
