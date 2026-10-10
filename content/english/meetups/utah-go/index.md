@@ -5,8 +5,8 @@ description: "A community of Go developers across Utah meeting regularly for tal
 slug: "utah-go"
 status: "graduated"
 weight: 10
-meetup_host: "meetup.com/utahgophers"
-meetup_url: "https://www.meetup.com/utahgophers/"
+meetup_host: "luma.com/utah-golang"
+meetup_url: "https://luma.com/utah-golang"
 organizers:
   - name: "carsonoid"
     slack_url: "https://forgeutah.slack.com/team/UHUHD5AG4"
