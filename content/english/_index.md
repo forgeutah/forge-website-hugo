@@ -16,7 +16,7 @@ hero:
     - "not-for-profit"
   primary_cta:
     label: "Join us on Slack"
-    link: "https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g"
+    link: "https://join.slack.com/t/forgeutah/shared_invite/zt-4epw3v7dh-t~HJ_rnEW7gjtCLvGlzLww"
   secondary_cta:
     label: "See Meetups"
     link: "/meetups/"

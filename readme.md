@@ -128,7 +128,7 @@ Deploy configs are checked in for **Netlify** (`netlify.toml`), **AWS Amplify** 
 
 ## Contributing
 
-Forge is a community project — contributions are welcome. Work on a feature branch and open a pull request against `main`. Come find us on **[Slack](https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g)** to say hi, pitch a blog post, or ask about helping organize a meetup.
+Forge is a community project — contributions are welcome. Work on a feature branch and open a pull request against `main`. Come find us on **[Slack](https://join.slack.com/t/forgeutah/shared_invite/zt-4epw3v7dh-t~HJ_rnEW7gjtCLvGlzLww)** to say hi, pitch a blog post, or ask about helping organize a meetup.
 
 ---
 

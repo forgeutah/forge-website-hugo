@@ -1,6 +1,6 @@
 #################### default parameters ################################
 # Forge single-source-of-truth links (used across nav, footer, CTAs)
-slack = "https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g"
+slack = "https://join.slack.com/t/forgeutah/shared_invite/zt-4epw3v7dh-t~HJ_rnEW7gjtCLvGlzLww"
 calendar = "https://utahtechcalendar.com/"
 # favicon
 favicon = "images/favicon.png"
@@ -42,7 +42,7 @@ preloader = "" # use jpg, png, svg or gif format.
 [navigation_button]
 enable = true
 label = "Join Us"
-link = "https://join.slack.com/t/forgeutah/shared_invite/zt-pietaeqb-HetfD2OIzn1RHtDtV~CH5g"
+link = "https://join.slack.com/t/forgeutah/shared_invite/zt-4epw3v7dh-t~HJ_rnEW7gjtCLvGlzLww"
 
 # search
 # search module: https://github.com/gethugothemes/hugo-modules/tree/master/search
